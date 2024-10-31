@@ -1,0 +1,50 @@
+<div class="p-4">
+    <h1>{{ title }}</h1>
+    <table class="table table-striped table-hover">
+        <thead>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Email</th>
+            <th>Best Friend?</th>
+            <th>Action</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let frd of friends; let i = index">
+                <td>{{ frd.name }}</td>
+                <td>{{ frd.age }}</td>
+                <td>{{ frd.email }}</td>
+                <td>{{ frd.bff }}</td>
+                <td><button (click)="delete(i)" class="btn btn-sm btn-danger">Delete</button></td>
+            </tr>
+        </tbody>
+    </table>
+    <h4>Add A Friend</h4>
+    <table>
+        <tr>
+            <td>Name:</td>
+            <td>
+                <input [(ngModel)]="newFriend.name" type="text" />
+            </td>
+        </tr>
+        <tr>
+            <td>Age:</td>
+            <td>
+                <input [(ngModel)]="newFriend.age" type="number" />
+            </td>
+        </tr>
+        <tr>
+            <td>Email:</td>
+            <td>
+                <input [(ngModel)]="newFriend.email" type="text" />
+            </td>
+        </tr>
+        <tr>
+            <td>BFF?: </td>
+            <td>
+                <input [(ngModel)]="newFriend.bff" type="checkbox" />
+            </td>
+        </tr>
+    </table>
+    <button (click)="addFriend()">Add Friend</button>
+</div>
+<!-- <p *ngFor="let frd of this.friends">{{ frd.name }} {{ frd.age }} {{ frd.email }} {{ frd.bff }} </p> -->
